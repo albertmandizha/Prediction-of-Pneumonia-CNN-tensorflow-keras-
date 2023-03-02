@@ -1,0 +1,166 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage[paperheight=27.5cm, paperwidth=21cm,% Set the height and width of the paper
+includehead,
+nomarginpar,% We don't want any margin paragraphs
+textwidth=17cm,% Set \textwidth to 18cm
+textheight=18.4cm,% Set \textwidth to 22cm
+headheight=46mm,% Set \headheight to 10mm
+]{geometry}
+
+% Useful packages
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{indentfirst}
+\usepackage{latexsym}
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{amssymb}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{xspace}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{fit,automata,arrows}
+\usetikzlibrary{patterns,hobby}
+
+
+\newcommand{\X}{\cellcolor{gray!55} \checkmark}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\fin}{\hfill\vbox{\hrule height 5pt width 5pt }\bigskip}
+
+\newcommand{\NP}{{\sf NP}}
+
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{fancyhdr}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[R]{\thepage}%
+  \renewcommand{\headrulewidth}{0.4pt}% Line at the header invisible
+  \renewcommand{\footrulewidth}{0.02pt}% Footer line not visible with 0pt
+
+\fancyhead[C]{
+\begin{center}
+{\Large
+\textbf{Illinois Institute Of Technology \\
+College of Computing Science}}\\
+
+\bigskip 
+
+\large \textbf{Prediction of Pneumonia using Convolutional Neural  \\ Network on Chest X-Ray Images\\
+CSP 584 Machine Learning Project\\ Albert Mandizha A20493341 & Ranjan Mishra A20521033}
+\end{center}}
+}
+
+\usepackage{tcolorbox}
+\newtcolorbox{mybox}{colback=gray!30,
+boxrule=1pt,arc=0pt,boxsep=0pt,left=2pt,right=2pt,leftrule=1pt}
+
+\renewcommand\spanishtablename{Tabla}
+
+
+\begin{document}
+
+%\title{.....}
+%\author{....}
+%\date{\today}
+
+%\maketitle
+
+\pagestyle{plain}
+
+\begin{mybox}
+\centering \textbf{PROJECT PROPOSAL}
+\end{mybox}
+
+\medskip
+
+\textbf{Title:} Prediction of Pneumonia using Convolutional Neural Network on Chest X-Ray Images \\
+
+
+\textbf{Dataset Source:} \url{https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia}\\
+
+\textbf{Discipline/Area:} Health and Informatics-clinical-decision support algorithms for medical imaging  
+
+\section*{Introduction: } \noindent{Pneumonia is a leading cause of morbidity and mortality worldwide. Early detection of pneumonia is crucial for effective treatment and management. Chest X-ray imaging is one of the most common diagnostic tools for detecting pneumonia. However, the interpretation of chest X-ray images is time-consuming and subjective. Convolutional Neural Networks (CNN) can automate the process of pneumonia detection, leading to faster and more accurate diagnosis. This project aims to use CNN to predict pneumonia in chest X-ray images.\\} \cite {krizhevsky2012imagenet}
+
+\section*{Research Questions:} 
+\noindent The following research questions will guide our investigation:
+
+\begin{enumerate}
+\item Can a CNN accurately predict the presence of pneumonia in chest X-ray images?
+\item How does the accuracy of the CNN model compare to that of human radiologists?
+\item What is the optimal CNN architecture and hyper parameters for pneumonia detection in chest X-ray images?
+\end{enumerate}
+
+\section*{Literature Review}
+
+\subsection{U-Net: Convolutional Networks for Biomedical Image Segmentation}
+
+\noindent The paper "U-Net: Convolutional Networks for Biomedical Image Segmentation" by Ronneberger, Fischer, and Brox proposes a novel convolutional neural network (CNN) architecture, U-Net, for biomedical image segmentation. The U-Net architecture is designed to handle limited training data and accurately segment images with high resolution.\\
+
+
+\noindent The U-Net architecture was evaluated on different biomedical image segmentation tasks and showed state-of-the-art performance compared to other segmentation methods. The paper concludes that the U-Net architecture is an effective and efficient method for biomedical image segmentation with limited training data, making it particularly useful for medical applications.\cite {krizhevsky2012imagenet}
+
+
+\subsection{ImageNet Classification with Deep Convolutional Neural Networks}
+
+\noindent The paper "ImageNet Classification with Deep Convolutional Neural Networks" by Alex Krizhevsky, Ilya Sutskever, and Geoffrey Hinton, published in 2012, is a landmark work in the field of deep learning.\\
+
+\noindent The paper introduces the AlexNet architecture, which was the first deep neural network to achieve state-of-the-art results on the ImageNet dataset. The authors proposed a deep convolutional neural network that significantly improved the state-of-the-art performance on the ImageNet dataset, which is a large-scale object recognition task. They used various techniques, including data augmentation, dropout regularization, and local response normalization, to improve the model's performance. They also trained the model on a large dataset using a powerful GPU, which allowed them to train the model in a relatively short time.\\
+
+\noindent The results showed that their model achieved a top-5 error rate of 15.3\%, which was a significant improvement over previous approaches. The paper has had a significant impact on the field, and the AlexNet architecture has become the basis for many subsequent deep neural networks. \cite {ronneberger2015unet}
+
+
+\section*{Methodology}
+
+\noindent The proposed methodology for this project includes the following steps:
+
+\begin{enumerate}
+\item \textbf{Data collection}: Collect chest X-ray images from public datasets such as the National Institutes of Health Chest X-ray dataset.
+\item \textbf{Data preprocessing}: Preprocess the images by resizing, normalizing, and augmenting them to improve the accuracy of the model.
+\item \textbf{Model development}: Develop a CNN model using TensorFlow and Keras to predict the presence of pneumonia in chest X-ray images.
+\item \textbf{Model evaluation}: Evaluate the performance of the CNN model by calculating metrics such as accuracy, sensitivity, specificity, and F1 score. Compare the results to those of human radiologists.
+\item \textbf{Hyperparameter tuning}: Optimize the hyperparameters of the CNN model to improve its performance.
+\item \textbf{Interpretation}: Interpret the results of the model to gain insights into how the CNN identifies pneumonia in chest X-ray images.
+\end{enumerate}
+
+
+\section*{Expected Outcomes}
+
+\noindent The expected outcomes of this project are as follows:
+
+\begin{enumerate}
+\item A CNN model that can accurately predict the presence of pneumonia in chest X-ray images.
+\item Comparison of the accuracy of the CNN model to that of human radiologists.
+\item Determination of the optimal CNN architecture and hyperparameters for pneumonia detection in chest X-ray images.
+\end{enumerate}
+
+
+\section*{Conclusion: }\noindent  In this project, we aimed to develop a CNN model that can accurately predict the presence of pneumonia in chest X-ray images. The results of this study have the potential to improve the diagnosis of pneumonia, leading to faster and more effective treatment. By developing an accurate and efficient CNN model, we can reduce the burden on radiologists and provide a more reliable and consistent method for detecting pneumonia. Overall, this project can contribute to improving the quality of healthcare and patient outcomes.
+
+
+\begin{thebibliography}{9}
+
+\bibitem{krizhevsky2012imagenet}
+Krizhevsky, Alex, Ilya Sutskever, and Geoffrey Hinton. "ImageNet classification with deep convolutional neural networks." In Proceedings of the 25th international conference on neural information processing systems, pp. 1097-1105. 2012.
+
+\bibitem{ronneberger2015unet}
+Ronneberger, Olaf, Philipp Fischer, and Thomas Brox. "U-net: Convolutional networks for biomedical image segmentation." arXiv preprint arXiv:1505.04597 (2015). Accessed February 26, 2023. https://arxiv.org/abs/1505.04597v1.
+
+\end{thebibliography}
+
+\end{document}
